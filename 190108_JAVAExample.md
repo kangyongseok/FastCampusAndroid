@@ -73,3 +73,38 @@ public class Method {
 
 과제3
 ---
+
+- 0~9까지 들어있는 ArrayList 생성
+- 9~0까지 들어있는 ArrayList 생성
+- 두 ArrayList 의 같은 `index` 값들의 곱을 출력
+
+```java
+public class Method {
+
+    public static void main(String[] args) {
+        ArrayList<Integer> order1 = new ArrayList<>();
+        ArrayList<Integer> order2 = new ArrayList<>();
+
+        for(int i = 0; i < 10; i++) {
+            order1.add(i);
+        }
+
+        for(int i = 9; i >= 0; i--) {
+            order2.add(i);
+        }
+
+        System.out.println(order1);
+        System.out.println(order2);
+
+        multipleTwoArrayLists(order1, order2);
+    }
+
+    public static void multipleTwoArrayLists(ArrayList<Integer> order1, ArrayList<Integer> order2) {
+
+        for(int i = 0; i < order1.size(); i++) {
+            int result = order1.get(i) * order2.get(i);
+            System.out.println(result);
+        }
+    }
+}
+```
