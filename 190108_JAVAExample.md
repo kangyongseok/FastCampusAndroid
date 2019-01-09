@@ -108,3 +108,77 @@ public class Method {
     }
 }
 ```
+
+---
+
+CLASS 과제
+===
+
+**계산기 클래스 만들기**
+
+- 계산기는 `이전계산결과`를 기억하고 있어야 한다.
+- 계산기는 `이전계산결과`에, 정수에 대한 +, -, *, /, % 연산을 수행할 수 있어야 한다.
+- 생성자를 통해서 이전 계산 변수의 초기값을 설정한다.
+- 계산결과가 int가 아닌 경우에는 반올림하여 int 로 만들어 준다.
+- 계산 결과가 음수인 경우 0으로 한다.
+- 최종 결과를 리턴하는 함수가 있어야 한다.
+
+**Calculator_instance.java**
+
+```java
+public class Calculator_instance {
+    int previousResult;
+
+    public Calculator_instance(int previousResult) {
+        this.previousResult = previousResult;
+    }
+
+    public void add(int a) {
+        previousResult += a;
+        minusCheck();
+    }
+
+    public void multiple(int value) {
+        previousResult *= value;
+        minusCheck();
+    }
+
+    public void percent(int value) {
+        previousResult %= value;
+        minusCheck();
+    }
+
+    public void minus(int value) {
+        previousResult -= value;
+        minusCheck();
+    }
+
+    public void minusCheck() {
+        if(this.previousResult < 0) {
+            previousResult = 0;
+        }
+    }
+
+    public void getResult() {
+        System.out.println(previousResult);
+    }
+}
+```
+
+**Calculator_User.java**
+
+```java
+public class Calculator_User {
+    public static void main(String[] args) {
+        Calculator_instance calculator = new Calculator_instance(10);
+        calculator.add(3);
+        calculator.getResult();
+        calculator.multiple(2);
+        calculator.getResult();
+        calculator.percent(4);
+        calculator.getResult();
+        calculator.minus(5);
+        calculator.getResult();
+    }
+}
+```
